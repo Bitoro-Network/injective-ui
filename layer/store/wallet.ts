@@ -15,7 +15,8 @@ import {
   Wallet,
   isEthWallet,
   isCosmosWallet,
-  isCosmosBrowserWallet
+  isCosmosBrowserWallet,
+  MsgBroadcasterTxOptions
 } from '@injectivelabs/wallet-ts'
 import {
   validateCosmosWallet,
@@ -713,7 +714,7 @@ export const useSharedWalletStore = defineStore('sharedWallet', {
           ? walletStore.autoSign?.injectiveAddress
           : walletStore.injectiveAddress,
         memo
-      }
+      } as unknown as MsgBroadcasterTxOptions
 
       return broadcastOptions
     },
